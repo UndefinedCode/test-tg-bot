@@ -16,10 +16,15 @@ async def start(event):
     await event.respond('Привет! Я бот-попугай, повторяю твои сообщения)')
     raise events.StopPropagation
 
-@bot.on(events.NewMessage)
+# @bot.on(events.NewMessage)
+# async def echo(event):
+#     """Echo the user message."""
+#     await event.respond(event.text)
+
+@bot.on(events.NewMessage(pattern='/kakmam'))
 async def echo(event):
     """Echo the user message."""
-    await event.respond(event.text)
+    await event.respond('Что ты сказал?')
 
 def main():
     """Start the bot."""
